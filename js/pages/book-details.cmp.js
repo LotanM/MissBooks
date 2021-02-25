@@ -22,9 +22,14 @@ export default {
             <p >Categories: {{book.categories}}</p>
             <review-add/> 
         </div>
-        <router-link to="/book"><button class=back-btn>↵</button></router-link>
     </section>
     `,
+    data() {
+        return {
+            book: null
+
+        }
+    },
     computed: {
         readingTime() {
             if (this.book.pageCount < 100) return 'Light Reading!'
@@ -40,12 +45,6 @@ export default {
                 style: 'currency',
                 currency: this.book.listPrice.currencyCode
             }))
-        }
-    },
-    data() {
-        return {
-            book: null
-
         }
     },
     created() {
